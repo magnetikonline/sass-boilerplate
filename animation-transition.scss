@@ -1,6 +1,5 @@
 @mixin animation($value) {
 	-moz-animation: #{$value};
-	-ms-animation: #{$value};
 	-o-animation: #{$value};
 	-webkit-animation: #{$value};
 	animation: #{$value};
@@ -8,7 +7,6 @@
 
 @mixin keyframes($name) {
 	@-moz-keyframes #{$name} { @content; }
-	@-ms-keyframes #{$name} { @content; }
 	@-o-keyframes #{$name} { @content; }
 	@-webkit-keyframes #{$name} { @content; }
 	@keyframes #{$name} { @content; }
@@ -16,7 +14,6 @@
 
 @mixin transition($value) {
 	-moz-transition: #{$value};
-	-ms-transition: #{$value};
 	-o-transition: #{$value};
 	-webkit-transition: #{$value};
 	transition: #{$value};
