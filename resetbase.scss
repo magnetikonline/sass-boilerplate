@@ -1,4 +1,4 @@
-/* -- reset -- */
+// -- reset --
 a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,img,label,legend,li,ol,p,td,th,ul {
 	border: 0;
 	font-size: 100%;
@@ -19,7 +19,7 @@ input,select,textarea {
 	margin: 0;
 }
 
-/* -- base -- */
+// -- base --
 body,button,input,select,td,th,textarea {
 	color: #000;
 	font-family: sans-serif;
@@ -29,4 +29,21 @@ body {
 	background: #fff;
 	font-size: 62.5%;
 	line-height: 1;
+}
+
+// -- base -- clearfix --
+.cf:before,
+.cf:after {
+	content: '\0020';
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.cf {
+	zoom: 1; // for IE7 and below
 }
