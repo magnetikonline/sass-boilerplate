@@ -1,0 +1,12 @@
+@mixin border-radius($value) {
+	-moz-border-radius: $value;
+	-webkit-border-radius: $value;
+	border-radius: $value;
+}
+
+@mixin opacity($value) {
+	// truncate $value to two decimal places maximum
+	opacity: (round($value * 100) / 100);
+	filter: alpha(opacity=((round($value * 100) / 100) * 100));
+	zoom: 1;
+}

@@ -1,7 +1,19 @@
+$resetBase_baseBackground: #fff !default;
+$resetBase_baseColor: #000 !default;
+$resetBase_baseFontFamily: sans-serif !default;
+
+
 // -- reset --
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,img,label,legend,li,ol,p,td,th,ul {
 	border: 0;
 	font-size: 100%;
+	font-weight: normal;
 	list-style: none;
 	margin: 0;
 	outline: 0;
@@ -10,8 +22,8 @@ a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,img,label,legend,li,ol,p,td,t
 	vertical-align: baseline;
 }
 
-body,button,fieldset,form,h1,h2,h3,h4,h5,h6,legend,li,ol,p,td,th,ul {
-	font-weight: normal;
+a,abbr {
+	font-weight: inherit;
 }
 
 input,select,textarea {
@@ -21,29 +33,29 @@ input,select,textarea {
 
 // -- base --
 body,button,input,select,td,th,textarea {
-	color: #000;
-	font-family: sans-serif;
+	color: $resetBase_baseColor;
+	font-family: $resetBase_baseFontFamily;
 }
 
 body {
-	background: #fff;
+	background: $resetBase_baseBackground;
 	font-size: 62.5%;
 	line-height: 1;
 }
 
-// -- base -- clearfix --
-.cf:before,
-.cf:after {
+// -- base - clearfix --
+%clearfix:before,
+%clearfix:after {
 	content: '\0020';
 	display: block;
 	height: 0;
 	overflow: hidden;
 }
 
-.cf:after {
+%clearfix:after {
 	clear: both;
 }
 
-.cf {
+%clearfix {
 	zoom: 1; // for IE7 and below
 }
