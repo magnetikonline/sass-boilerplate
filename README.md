@@ -47,7 +47,7 @@ The `clearfix` class has been implemented as a [SASS placeholder](http://sass-la
 [animationtransition.scss](animationtransition.scss) for cross browser compatible CSS3 `animation`,  `@keyframes` and `transition` mixin's.
 
 ## retinaonly.scss
-[retinaonly.scss](retinaonly.scss) allows for the creation of styles which will only be targeted to "retina" style, high pixel density display. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
+[retinaonly.scss](retinaonly.scss) allows for the creation of styles which will only be targeted to "retina" style, high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
 
 An example:
 

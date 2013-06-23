@@ -7,6 +7,6 @@
 @mixin opacity($value) {
 	// truncate $value to two decimal places maximum
 	opacity: (round($value * 100) / 100);
-	filter: alpha(opacity=((round($value * 100) / 100) * 100));
+	filter: alpha(opacity=(round($value * 100)));
 	zoom: 1;
 }
