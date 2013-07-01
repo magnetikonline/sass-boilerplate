@@ -1,0 +1,15 @@
+@mixin respondWidth($query) {
+	@media screen and #{$query} { @content; }
+}
+
+@mixin respondWidthFrom($widthFrom) {
+	@media screen and (min-width: $widthFrom) { @content; }
+}
+
+@mixin respondWidthUpTo($widthUpTo) {
+	@media screen and (max-width: #{$widthUpTo - 1}) { @content; }
+}
+
+@mixin respondWidthFromUpTo($widthFrom,$widthUpTo) {
+	@media screen and (min-width: $widthFrom) and (max-width: #{$widthUpTo - 1}) { @content; }
+}

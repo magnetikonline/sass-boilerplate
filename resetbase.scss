@@ -59,3 +59,12 @@ body {
 %clearfix {
 	zoom: 1; // for IE7 and below
 }
+
+// -- base - hide --
+%hide {
+	left: -999em;
+	overflow: hidden;
+	position: absolute;
+	top: -999em;
+	width: 1em;
+}

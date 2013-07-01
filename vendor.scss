@@ -4,6 +4,30 @@
 	border-radius: $value;
 }
 
+@mixin linear-gradient($angle,$stops...) {
+	$angleVendor: '';
+	@if ($angle == 'to top') {
+		$angleVendor: bottom;
+	} @else if ($angle == 'to right') {
+		$angleVendor: left;
+	} @else if ($angle == 'to bottom') {
+		$angleVendor: top;
+	} @else if ($angle == 'to left') {
+		$angleVendor: right;
+	} @else if ($angle == 'to top right') {
+		$angleVendor: bottom left;
+	} @else if ($angle == 'to bottom right') {
+		$angleVendor: top left;
+	} @else if ($angle == 'to bottom left') {
+		$angleVendor: top right;
+	} @else if ($angle == 'to top left') {
+		$angleVendor: bottom right;
+	}
+
+	background: -webkit-linear-gradient($angleVendor,$stops);
+	background: linear-gradient(unquote($angle),$stops);
+}
+
 @mixin opacity($value) {
 	// truncate $value to two decimal places maximum
 	opacity: (round($value * 100) / 100);

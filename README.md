@@ -2,13 +2,18 @@
 Building a collection of my common use Sass components and snippets, using SCSS syntax.
 - [resetbase.scss](#resetbasescss)
 - [animationtransition.scss](#animationtransitionscss)
-- [retinaonly.scss](#retinaonlyscss)
+- [retina.scss](#retinascss)
 - [vendor.scss](#vendorscss)
 
 ## resetbase.scss
-[resetbase.scss](resetbase.scss) applies a CSS reset, base page styles, `box-sizing: border-box` for all elements, font-size reset so `1em = 10px` and defines the obligatory clearfix. Designed for use with all modern browsers and IE8+.
+[resetbase.scss](resetbase.scss) does the following:
+- Applies a CSS reset / base page styles
+- `box-sizing: border-box` for all elements
+- `font-size` reset so `1em = 10px`
+- Defines the obligatory clearfix
+- Element hide/off canvas
 
-Default `background`, `color` and `font-family` can be overridden:
+Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden:
 
 ```scss
 $resetBase_baseBackground: #000;
@@ -33,7 +38,7 @@ body {
 }
 ```
 
-The `clearfix` class has been implemented as a [SASS placeholder](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders) which is used with `@extend` in target styles, rather than littering HTML markup with `class="clearfix"`:
+The `clearfix` and `hide` have each been implemented as a [SASS placeholder](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
@@ -46,13 +51,13 @@ The `clearfix` class has been implemented as a [SASS placeholder](http://sass-la
 ## animationtransition.scss
 [animationtransition.scss](animationtransition.scss) for cross browser compatible CSS3 `animation`,  `@keyframes` and `transition` mixin's.
 
-## retinaonly.scss
-[retinaonly.scss](retinaonly.scss) allows for the creation of styles which will only be targeted to "retina" style, high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
+## retina.scss
+[retina.scss](retina.scss) allows for the creation of styles (usually images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created/devised by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
 
-An example:
+An example using `retinaImage()`:
 
 ```scss
-@import 'retinaonly.scss';
+@import 'retina.scss';
 $logoWidth: 200px;
 
 .companylogo {
@@ -60,10 +65,7 @@ $logoWidth: 200px;
 	height: 200px;
 	width: $logoWidth;
 
-	@include retinaOnly() {
-		background-image: url(companylogo2x.png);
-		background-size: $logoWidth;
-	}
+	@include retinaImage('companylogo2x.png',$logoWidth);
 }
 ```
 
@@ -84,7 +86,25 @@ $logoWidth: 200px;
 }
 ```
 
+Also included is a `retinaOnly()` mixin for adding any arbitrary CSS style rules:
+```scss
+@import 'retina.scss';
+
+.shinybutton {
+	font-weight: bold;
+	height: 200px;
+	width: 100px;
+
+	@include retinaOnly() {
+		// why my button gets red borders on retina only, is anyone's guess!?!
+		border: 1px solid #f00;
+	}
+}
+```
+
+
 ## vendor.scss
 [vendor.scss](vendor.scss) holds mixin's for CSS styles that (still) require vendor prefixes - currently:
 - `border-radius($value)`
+- `linear-gradient($angle,$stops)`, provides `-webkit` prefix with alternative (reversed) `$angle` syntax for `to top, to right, to bottom` etc.
 - `opacity($value)`, supplying `filter: alpha...` and `zoom: 1` syntax for improved IE8 compatibility.
