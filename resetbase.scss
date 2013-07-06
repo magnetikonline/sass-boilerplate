@@ -68,3 +68,17 @@ body {
 	top: -999em;
 	width: 1em;
 }
+
+// -- base - text overflow ellipsis --
+%textoverflowellipsis {
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// -- base - responsive image --
+%imgresponsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
