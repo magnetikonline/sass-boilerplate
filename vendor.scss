@@ -29,8 +29,8 @@
 }
 
 @mixin opacity($value) {
-	// truncate $value to two decimal places maximum
-	opacity: (round($value * 100) / 100);
-	filter: alpha(opacity=(round($value * 100)));
+	$valueMulti: round($value * 100);
+	opacity: ($valueMulti / 100); // truncate $value to two decimal places maximum
+	filter: alpha(opacity=$valueMulti);
 	zoom: 1;
 }
