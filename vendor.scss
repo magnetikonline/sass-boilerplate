@@ -24,12 +24,14 @@
 		$angleVendor: bottom right;
 	}
 
+	background: -moz-linear-gradient($angleVendor,$stops);
+	background: -o-linear-gradient($angleVendor,$stops);
 	background: -webkit-linear-gradient($angleVendor,$stops);
 	background: linear-gradient(unquote($angle),$stops);
 }
 
 @mixin opacity($value) {
-	$valueMulti: round($value * 100);
+	$valueMulti: (round($value * 100));
 	opacity: ($valueMulti / 100); // truncate $value to two decimal places maximum
 	filter: alpha(opacity=$valueMulti);
 	zoom: 1;
