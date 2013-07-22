@@ -82,3 +82,8 @@ body {
 	height: auto;
 	max-width: 100%;
 }
+
+// -- base - remove tap highlight --
+%removetaphighlight {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}

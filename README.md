@@ -15,6 +15,7 @@ Building a collection of my common use Sass components and snippets, using SCSS 
 - Element hide/off canvas
 - Text overflow with ellipsis helper
 - Responsive image helper (images to their max width or container, preserving aspect ratio/height)
+- Removal of the tap highlight color from Webkit based browsers on touch enabled devices, proves to be rather annoying at times - iOS/Mobile Safari in particular.
 
 Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden:
 
@@ -41,13 +42,21 @@ body {
 }
 ```
 
-The `clearfix`, `hide`, `textoverflowellipsis` and `imgresponsive` classes have each been implemented as a [SASS placeholder](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"` / etc.:
+The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphighlight` classes have each been implemented as a [SASS placeholder](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
 	@extend %clearfix;
 	border: 1px solid #000;
 	color: #f00;
+}
+
+.mybutton {
+	@extend %removetaphighlight;
+	color: #f00;
+	display: inline-block;
+	font-weight: bold;
+	height: 20px;
 }
 ```
 
