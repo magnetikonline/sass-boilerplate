@@ -5,7 +5,7 @@
 		(min-device-pixel-ratio: 1.5),
 		(min-resolution: 144dpi),
 		(min-resolution: 1.5dppx) {
-			background-image: url(unquote($src));
+			background-image: url(#{$src});
 			background-size: $width;
 		}
 }

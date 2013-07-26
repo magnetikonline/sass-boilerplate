@@ -27,7 +27,7 @@
 	background: -moz-linear-gradient($angleVendor,$stops);
 	background: -o-linear-gradient($angleVendor,$stops);
 	background: -webkit-linear-gradient($angleVendor,$stops);
-	background: linear-gradient(unquote($angle),$stops);
+	background: linear-gradient(#{$angle},$stops);
 }
 
 @mixin opacity($value) {
