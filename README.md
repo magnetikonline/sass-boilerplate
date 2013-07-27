@@ -2,6 +2,7 @@
 Building a collection of my common use Sass components and snippets, using SCSS syntax.
 - [resetbase.scss](#resetbasescss)
 - [animationtransition.scss](#animationtransitionscss)
+- [fontface.scss](#fontfacescss)
 - [respondwidth.scss](#respondwidthscss)
 - [retina.scss](#retinascss)
 - [vendor.scss](#vendorscss)
@@ -63,6 +64,29 @@ The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphi
 ## animationtransition.scss
 [animationtransition.scss](animationtransition.scss) for cross browser compatible CSS3 `animation`,  `@keyframes` and `transition` mixin's.
 
+## fontface.scss
+[fontface.scss](fontface.scss) for cross browser compatible `@font-face` embedding of the full `eot` (IE), `woff` (standards), `ttf` (Safari, Android, iOS) and `svg` (legacy iOS) stack:
+
+```scss
+@import 'fontface';
+@include fontFace('MyFont','font/myfont');
+```
+
+...generating:
+
+```css
+@font-face {
+	font-family: "MyFont";
+	src: url("font/myfont.eot");
+	src: url("font/myfont.eot?#iefix") format("embedded-opentype"),
+		url("font/myfont.woff") format("woff"),
+		url("font/myfont.ttf") format("truetype"),
+		url("font/myfont.svg#MyFont") format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+```
+
 ## respondwidth.scss
 [respondwidth.scss](respondwidth.scss) media query mixin's for responsive width page layouts. As an example, how I typically implement a responsive pageframe/row using common device breakpoints/widths:
 
@@ -123,7 +147,7 @@ $respondWidthNano: 480px;
 }
 ```
 
-Note the `max-width` is deliberately set 1px lower than the width given to avoid clashing of each breakpoint range.
+Note the `max-width` is deliberately set 1px lower than the width given to give isolation between each breakpoint width range.
 
 ## retina.scss
 [retina.scss](retina.scss) allows for the creation of styles (usually images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created/devised by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
