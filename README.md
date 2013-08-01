@@ -98,7 +98,7 @@ The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphi
 // 768px - 995px (768px)
 // 480px - 767px (456px)
 // 0px	 - 479px (300px)
-$respondWidthFull: 996px;
+$respondWidthCenti: 996px;
 $respondWidthMicro: 768px;
 $respondWidthNano: 480px;
 
@@ -106,7 +106,7 @@ $respondWidthNano: 480px;
 	margin: 0 auto;
 	width: 996px;
 
-	@include respondWidthFromUpTo($respondWidthMicro,$respondWidthFull) {
+	@include respondWidthFromUpTo($respondWidthMicro,$respondWidthCenti) {
 		width: 768px;
 	}
 
