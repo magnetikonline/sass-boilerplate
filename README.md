@@ -15,7 +15,7 @@ Building a collection of my common use Sass components and snippets, using SCSS 
 - Defines the obligatory clearfix
 - Element hide/off canvas
 - Text overflow with ellipsis helper
-- Responsive image helper (images to their max width or container, preserving aspect ratio/height)
+- Responsive image helper (images to their maximum width or container, preserving aspect ratio/height)
 - Removal of the tap highlight color from Webkit based browsers on touch enabled devices, proves to be rather annoying at times - iOS/Mobile Safari in particular.
 
 Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden:
@@ -43,7 +43,7 @@ body {
 }
 ```
 
-The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphighlight` classes have each been implemented as a [SASS placeholder](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
+The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphighlight` classes have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
@@ -93,7 +93,7 @@ The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphi
 ```scss
 @import 'respondwidth';
 
-// respond breakpoints
+// respond breakpoint
 // 996px - Infin (996px)
 // 768px - 995px (768px)
 // 480px - 767px (456px)
@@ -130,7 +130,7 @@ $respondWidthNano: 480px;
 
 @media screen and (min-width: 768px) and (max-width: 995px) {
 	.pageframe {
-    	width: 768px;
+		width: 768px;
 	}
 }
 
@@ -183,6 +183,8 @@ $logoWidth: 200px;
 	}
 }
 ```
+
+**Note:** The width parameter passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not given. This is typically what you want if the background image is to span the full width of the element allowing the browser to determine the scalled height (matching the aspect ratio). Providing a specific width is usually only needed for CSS sprites/etc.
 
 Also included is a `retinaOnly()` mixin for adding any arbitrary CSS style rules:
 ```scss
