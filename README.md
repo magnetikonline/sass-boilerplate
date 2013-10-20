@@ -43,17 +43,17 @@ body {
 }
 ```
 
-The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphighlight` classes have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with `@extend` in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
+The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` classes have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
-	@extend %clearfix;
+	@extend %clearFix;
 	border: 1px solid #000;
 	color: #f00;
 }
 
 .mybutton {
-	@extend %removetaphighlight;
+	@extend %tapHighlightRemove;
 	color: #f00;
 	display: inline-block;
 	font-weight: bold;
@@ -62,7 +62,7 @@ The `clearfix`, `hide`, `textoverflowellipsis`, `imgresponsive` and `removetaphi
 ```
 
 ## animationtransition.scss
-[animationtransition.scss](animationtransition.scss) for cross browser compatible CSS3 `animation`,  `@keyframes` and `transition` mixin's.
+[animationtransition.scss](animationtransition.scss) for cross browser compatible CSS3 `animation`, `@keyframes` and `transition` mixin's.
 
 ## fontface.scss
 [fontface.scss](fontface.scss) for cross browser compatible `@font-face` embedding of the full `eot` (IE), `woff` (standards), `ttf` (Safari, Android, iOS) and `svg` (legacy iOS) stack:

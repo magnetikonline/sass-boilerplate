@@ -43,20 +43,20 @@ body {
 	line-height: 1;
 }
 
-// -- base - clearfix --
-%clearfix:before,
-%clearfix:after {
+// -- base - clear fix --
+%clearFix:before,
+%clearFix:after {
 	content: '\0020';
 	display: block;
 	height: 0;
 	overflow: hidden;
 }
 
-%clearfix:after {
+%clearFix:after {
 	clear: both;
 }
 
-%clearfix {
+%clearFix {
 	zoom: 1; // for IE7 and below
 }
 
@@ -70,20 +70,20 @@ body {
 }
 
 // -- base - text overflow ellipsis --
-%textoverflowellipsis {
+%textOverflowEllipsis {
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
 // -- base - responsive image --
-%imgresponsive {
+%responsiveImage {
 	display: block;
 	height: auto;
 	max-width: 100%;
 }
 
-// -- base - remove tap highlight --
-%removetaphighlight {
+// -- base - tap highlight remove --
+%tapHighlightRemove {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
