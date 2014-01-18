@@ -10,7 +10,7 @@ $resetBase_baseFontFamily: sans-serif !default;
 	box-sizing: border-box;
 }
 
-a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,img,label,legend,li,ol,p,td,th,ul {
+a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,iframe,img,label,legend,li,ol,p,td,th,ul {
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
@@ -83,7 +83,7 @@ body {
 	max-width: 100%;
 }
 
-// -- base - tap highlight remove --
+// -- base - touch device tap highlight remove --
 %tapHighlightRemove {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
