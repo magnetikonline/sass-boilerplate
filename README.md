@@ -12,7 +12,7 @@ Building a collection of my common use Sass components and snippets, using SCSS 
 - Applies a CSS reset / base page styles
 - `box-sizing: border-box` for all elements
 - `font-size` reset so `1em = 10px`
-- Defines the obligatory clearfix
+- The obligatory clearfix
 - Element hide/off canvas
 - Text overflow with ellipsis helper
 - Responsive image helper (images to their maximum width or container, preserving aspect ratio/height)
@@ -43,7 +43,7 @@ body {
 }
 ```
 
-The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` classes have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering markup with `class="clearfix"` / `class="hide"`:
+The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` style definitions have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
