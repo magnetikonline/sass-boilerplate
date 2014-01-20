@@ -14,7 +14,6 @@ a,abbr,body,button,fieldset,form,h1,h2,h3,h4,h5,h6,iframe,img,label,legend,li,ol
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
-	line-height: 1;
 	list-style: none;
 	margin: 0;
 	outline: 0;
@@ -41,6 +40,7 @@ body,button,input,select,td,th,textarea {
 body {
 	background: $resetBase_baseBackground;
 	font-size: 62.5%;
+	line-height: 1;
 }
 
 // -- base - clear fix --
