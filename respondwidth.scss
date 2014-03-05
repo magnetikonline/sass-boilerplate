@@ -3,13 +3,13 @@
 }
 
 @mixin respondWidthFrom($widthFrom) {
-	@media screen and (min-width: $widthFrom) { @content; }
+	@media screen and (min-width: $widthFrom + 1) { @content; }
 }
 
 @mixin respondWidthUpTo($widthUpTo) {
-	@media screen and (max-width: #{$widthUpTo - 1}) { @content; }
+	@media screen and (max-width: #{$widthUpTo}) { @content; }
 }
 
 @mixin respondWidthFromUpTo($widthFrom,$widthUpTo) {
-	@media screen and (min-width: $widthFrom) and (max-width: #{$widthUpTo - 1}) { @content; }
+	@media screen and (min-width: $widthFrom + 1) and (max-width: #{$widthUpTo}) { @content; }
 }
