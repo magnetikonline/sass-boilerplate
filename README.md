@@ -43,7 +43,7 @@ body {
 }
 ```
 
-The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` style definitions have each been implemented as [SASS placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
+The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` style definitions have each been implemented as [Sass placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {

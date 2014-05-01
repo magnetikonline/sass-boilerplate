@@ -32,7 +32,7 @@ input,select,textarea {
 }
 
 // -- base --
-body,button,input,select,td,th,textarea {
+body,button,input,select,td,textarea,th {
 	color: $resetBase_baseColor;
 	font-family: $resetBase_baseFontFamily;
 }
