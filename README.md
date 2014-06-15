@@ -94,24 +94,24 @@ The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighli
 @import 'respondwidth';
 
 // respond breakpoint
-// 996px - Infin (996px)
-// 768px - 995px (768px)
-// 480px - 767px (456px)
-// 0px	 - 479px (300px)
+// 997px - Infin (960px)
+// 769px - 996px (732px)
+// 481px - 768px (444px)
+// 0px	 - 480px (300px)
 $respondWidthCenti: 996px;
 $respondWidthMicro: 768px;
 $respondWidthNano: 480px;
 
 .pageframe {
 	margin: 0 auto;
-	width: 996px;
+	width: 960px;
 
 	@include respondWidthFromUpTo($respondWidthMicro,$respondWidthCenti) {
-		width: 768px;
+		width: 732px;
 	}
 
 	@include respondWidthFromUpTo($respondWidthNano,$respondWidthMicro) {
-		width: 456px;
+		width: 444px;
 	}
 
 	@include respondWidthUpTo($respondWidthNano) {
@@ -125,22 +125,22 @@ $respondWidthNano: 480px;
 ```css
 .pageframe {
 	margin: 0 auto;
-	width: 996px;
+	width: 960px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 995px) {
+@media screen and (min-width: 769px) and (max-width: 996px) {
 	.pageframe {
-		width: 768px;
+		width: 732px;
 	}
 }
 
-@media screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
 	.pageframe {
-		width: 456px;
+		width: 444px;
 	}
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 480px) {
 	.pageframe {
 		width: 300px;
 	}
