@@ -150,7 +150,7 @@ $respondWidthNano: 480px;
 Note the `max-width` is deliberately set 1px lower than the width given to give isolation between each breakpoint width range.
 
 ## retina.scss
-[retina.scss](retina.scss) allows for the creation of styles (usually images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created/devised by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/).
+[retina.scss](retina.scss) allows for the creation of styles (usually images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/) and implemented by [Bourbon](http://bourbon.io/docs/#hidpi-media-query).
 
 An example using `retinaImage()`:
 
