@@ -1,38 +1,33 @@
-@mixin border-radius($value) {
-	-moz-border-radius: $value;
-	-webkit-border-radius: $value;
-	border-radius: $value;
+$vendorLinerGradientLegacyAngleList: (
+	to bottom		: top,
+	to bottom left	: top right,
+	to bottom right	: top left,
+	to left			: right,
+	to right		: left,
+	to top			: bottom,
+	to top left		: bottom right,
+	to top right	: bottom left
+);
+
+
+@mixin backface-visibility($value) {
+	-webkit-backface-visibility: $value;
+	backface-visibility: $value;
 }
 
 @mixin linear-gradient($angle,$stops...) {
-	$angleVendor: '';
-	@if ($angle == 'to top') {
-		$angleVendor: bottom;
-	} @else if ($angle == 'to right') {
-		$angleVendor: left;
-	} @else if ($angle == 'to bottom') {
-		$angleVendor: top;
-	} @else if ($angle == 'to left') {
-		$angleVendor: right;
-	} @else if ($angle == 'to top right') {
-		$angleVendor: bottom left;
-	} @else if ($angle == 'to bottom right') {
-		$angleVendor: top left;
-	} @else if ($angle == 'to bottom left') {
-		$angleVendor: top right;
-	} @else if ($angle == 'to top left') {
-		$angleVendor: bottom right;
+	@if (map-has-key($vendorLinerGradientLegacyAngleList,$angle)) {
+		$angleLegacy: map-get($vendorLinerGradientLegacyAngleList,$angle);
+		background: -o-linear-gradient($angleLegacy,$stops);
+		background: -webkit-linear-gradient($angleLegacy,$stops);
+		background: linear-gradient($angle,$stops);
+	} @else {
+		@error 'Invalid $angle: #{$angle}';
 	}
-
-	background: -moz-linear-gradient($angleVendor,$stops);
-	background: -o-linear-gradient($angleVendor,$stops);
-	background: -webkit-linear-gradient($angleVendor,$stops);
-	background: linear-gradient(#{$angle},$stops);
 }
 
-@mixin opacity($value) {
-	$valueMulti: (round($value * 100));
-	opacity: ($valueMulti / 100); // truncate $value to two decimal places maximum
-	filter: alpha(opacity=$valueMulti);
-	zoom: 1;
+@mixin transform($value) {
+	-ms-transform: $value; // for IE9
+	-webkit-transform: $value;
+	transform: $value;
 }

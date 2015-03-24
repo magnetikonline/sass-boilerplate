@@ -46,7 +46,7 @@ body {
 // -- base - clear fix --
 %clearFix:before,
 %clearFix:after {
-	content: '\0020';
+	content: '\0020'; // space character
 	display: block;
 	height: 0;
 	overflow: hidden;
@@ -54,10 +54,6 @@ body {
 
 %clearFix:after {
 	clear: both;
-}
-
-%clearFix {
-	zoom: 1; // for IE7 and below
 }
 
 // -- base - hide --

@@ -1,0 +1,50 @@
+@function color($key) {
+
+	@if (map-has-key($colorMap,$key)) {
+		@return map-get($colorMap,$key);
+	}
+
+	@error 'Invalid $colorMap key: #{$key}';
+}
+
+@function fontSize($key: null) {
+
+	@if ($key == null) {
+		// default to first map key
+		$key: nth(map-keys($fontSizeMap),1);
+	}
+
+	@if (map-has-key($fontSizeMap,$key)) {
+		@return map-get($fontSizeMap,$key);
+	}
+
+	@error 'Invalid $fontSizeMap key: #{$key}';
+}
+
+@function sp($key: null,$multiplier: 1) {
+
+	@if ($key == null) {
+		// default to first map key
+		$key: nth(map-keys($spacingMap),1);
+	}
+
+	@if (map-has-key($spacingMap,$key)) {
+		@return (map-get($spacingMap,$key) * $multiplier);
+	}
+
+	@error 'Invalid $spacingMap key: #{$key}';
+}
+
+@function zIndex($key: null,$shift: 0) {
+
+	@if ($key == null) {
+		// default to first map key
+		$key: nth(map-keys($zIndexMap),1);
+	}
+
+	@if (map-has-key($zIndexMap,$key)) {
+		@return (map-get($zIndexMap,$key) + $shift);
+	}
+
+	@error 'Invalid $zIndexMap key: #{$key}';
+}
