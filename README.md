@@ -150,10 +150,10 @@ $zIndexMap: (
 ```
 
 Note:
-- Omitting the key parameter from `fontSize()`, `sp()` and `zIndex()` will return the **first** item in each defined Sass map - considered your default.
-- The `sp()` function accepts an optional *multiplier* float to adjust the given spacing map value.
-- The `zIndex()` function accepts an optional *shift* integer to plus/minus the given `z-index` map value.
-- Invalid map keys given to any of these functions will throw a fatal error.
+- Omitting the map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each defined Sass map - which is considered the default.
+- Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value. Defaults to 1 (return source spacing map value).
+- Function `zIndex($key[,$shift])` optional `$shift` integer parameter allows increment/decrement to given `z-index` map value. Defaults to 0 (zero).
+- Invalid map keys given to any of these functions will throw a fatal Sass error.
 
 ### fontface.scss
 [fontface.scss](fontface.scss) for cross browser compatible `@font-face` embedding of font types:
@@ -205,18 +205,18 @@ $respondWidthMap: (
 
 .pageframe {
 	margin: 0 auto;
-	width: 960px;
+	width: respondWidthGet(centi,-36px);
 
 	@include respondWidthFrom(centi) {
 		padding: 0 50px;
 	}
 
 	@include respondWidthFromUpTo(micro,centi) {
-		width: 732px;
+		width: respondWidthGet(micro,-36px);
 	}
 
 	@include respondWidthFromUpTo(nano,micro) {
-		width: 444px;
+		width: respondWidthGet(nano,-36px);
 	}
 
 	@include respondWidthUpTo(nano) {
@@ -259,8 +259,9 @@ $respondWidthMap: (
 ```
 
 Note:
-- The generated `@media` query `min-width` is deliberately returned 1px *greater* than the defined `$respondWidthMap` map value to ensure isolation between each breakpoint range.
-- Invalid breakpoint map keys given to any of these functions; or a `from` breakpoint greater than `upTo` given to `respondWidthFromUpTo()` will throw a fatal error.
+- The generated `@media` query `min-width` is deliberately returned 1px *greater* than the `$respondWidthMap` map value defined to ensure isolation between breakpoint ranges.
+- Invalid breakpoint map keys given to any of these functions; or a `from` breakpoint greater than `upTo` given to `respondWidthFromUpTo()` will throw a fatal Sass error.
+- Function `respondWidthGet($key[,$shift])` returns the defined pixel width for a given `$key`, useful for dependent calculations with an optional `$shift` integer parameter for increment/decrement to map value.
 
 ### retina.scss
 [retina.scss](retina.scss) allows for the creation of styles (typically images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/) and implemented by [Bourbon](http://bourbon.io/docs/#hidpi-media-query).
@@ -303,7 +304,7 @@ $logoWidth: 200px;
 ```
 
 Note:
-- The width parameter passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not given.
+- The width argument passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not given.
 - This is typically what you want if the background image is to span the full width of the element, allowing the browser to determine the natural scaled height (matching the aspect ratio).
 - Providing a specific width I find is (usually) only needed for CSS spriting tasks.
 

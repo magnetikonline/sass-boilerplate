@@ -40,3 +40,12 @@
 		@error 'Invalid $respondWidthMap \'from\' key: #{$keyFrom}';
 	}
 }
+
+@function respondWidthGet($key,$shift: 0) {
+
+	@if (map-has-key($respondWidthMap,$key)) {
+		@return (map-get($respondWidthMap,$key) + $shift);
+	}
+
+	@error 'Invalid $respondWidthMap key: #{$key}';
+}
