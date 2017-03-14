@@ -18,10 +18,10 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 
 ## Library
 
-### resetbase.scss
-[resetbase.scss](resetbase.scss) does the following:
-- Applies a CSS "reset" (base page element styles).
+### [`resetbase.scss`](resetbase.scss)
+Provides the following:
 - `box-sizing: border-box` applied to all elements.
+- CSS "reset" to base page elements.
 - `font-size` reset so `1em = 10px`.
 - The obligatory clearfix.
 - Element hide/off canvas.
@@ -29,7 +29,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 - Responsive image helper (images to their maximum width or container, preserving aspect ratio/height).
 - Removal of the tap highlight color from Webkit based browsers on touch enabled devices, proves to be rather annoying at times (applies to iOS/Mobile Safari in particular).
 
-Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden via defined Sass variables:
+Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden via Sass variables:
 
 ```scss
 $resetBase_baseBackground: #000;
@@ -54,7 +54,7 @@ body {
 }
 ```
 
-The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` style definitions have each been implemented as [Sass placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders), used with the `@extend` directive in target styles, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
+The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` definitions are implemented as [Sass placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders) and used with the `@extend` directive, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
 
 ```scss
 .myclasswithclearfix {
@@ -72,13 +72,13 @@ The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighli
 }
 ```
 
-### animationtransition.scss
-[animationtransition.scss](animationtransition.scss) mixins for cross browser compatible CSS3 `animation`, `@keyframes` and `transition`.
+### [`animationtransition.scss`](animationtransition.scss)
+Mixins for CSS3 `animation`, `@keyframes` and `transition` defintions.
 
-Includes `-webkit-` and `-o-` vendor prefixes (Firefox went prefix free from [version 16](http://caniuse.com/css-animation)).
+Includes `-webkit-` vendor prefix (Firefox went prefix free since [version 16](http://caniuse.com/css-animation)).
 
-### collection.scss
-[collection.scss](collection.scss) is a series of `@function`s for fetching what I consider *collection* values, which are kept within Sass map data types.
+### [`collection.scss`](collection.scss)
+A series of `@function`s for fetching what I consider *collection* values, defined within Sass map data types.
 
 Currently for colors, font sizes, spacing (margin/padding/etc.) and z-indexes:
 
@@ -150,19 +150,19 @@ $zIndexMap: (
 ```
 
 Note:
-- Omitting the map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each defined Sass map - which is considered the default.
-- Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value. Defaults to 1 (return source spacing map value).
+- Omitting map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each Sass map (the default value).
+- Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value. Defaults to 1 (returning source spacing map value).
 - Function `zIndex($key[,$shift])` optional `$shift` integer parameter allows increment/decrement to given `z-index` map value. Defaults to 0 (zero).
-- Invalid map keys given to any of these functions will throw a fatal Sass error.
+- Invalid map keys given to any function will throw a fatal [Sass error](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7).
 
-### fontface.scss
-[fontface.scss](fontface.scss) for cross browser compatible `@font-face` embedding of font types:
+### [`fontface.scss`](fontface.scss)
+Cross browser compatible `@font-face` embedding of webfont files:
 - `eot` (Internet Explorer)
 - `svg` (iOS legacy)
 - `ttf` (Safari, Android, iOS) and;
 - `woff` (Standards)
 
-The `fontFace()` function accepts optional `font-style` and `font-weight` arguments - both which default to `normal`.
+The `fontFace()` function accepts optional `font-style` and `font-weight` arguments - both which default to `normal`:
 
 ```scss
 @import 'fontface';
@@ -184,10 +184,10 @@ The `fontFace()` function accepts optional `font-style` and `font-weight` argume
 }
 ```
 
-### respondwidth.scss
-[respondwidth.scss](respondwidth.scss) media query mixins for responsive width layouts.
+### [`respondwidth.scss`](respondwidth.scss)
+Media query mixins to assist with responsive width page layouts.
 
-Breakpoints are defined in a central `$respondWidthMap` Sass map variable. As an example, how I typically implement using common device breakpoints:
+Breakpoints are defined in a `$respondWidthMap` map variable. As an example, how I typically implement using common device breakpoints:
 
 ```scss
 @import 'respondwidth';
@@ -259,12 +259,12 @@ $respondWidthMap: (
 ```
 
 Note:
-- The generated `@media` query `min-width` is deliberately returned 1px *greater* than the `$respondWidthMap` map value defined to ensure isolation between breakpoint ranges.
+- The generated `@media` query `min-width` is deliberately returned 1px *greater* than the `$respondWidthMap` map value defined to provide isolation between each breakpoint range.
 - Invalid breakpoint map keys given to any of these functions; or a `from` breakpoint greater than `upTo` given to `respondWidthFromUpTo()` will throw a fatal Sass error.
-- Function `respondWidthGet($key[,$shift])` returns the defined pixel width for a given `$key`, useful for dependent calculations with an optional `$shift` integer parameter for increment/decrement to map value.
+- Function `respondWidthGet($key[,$shift])` returns the defined width for a given `$key`, useful for dependent calculations. An optional `$shift` integer parameter allows for increment/decrement to map value.
 
-### retina.scss
-[retina.scss](retina.scss) allows for the creation of styles (typically images) which are targeted only to "retina" style, high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/) and implemented by [Bourbon](http://bourbon.io/docs/#hidpi-media-query).
+### [`retina.scss`](retina.scss)
+Allows for creation of styles (typically images) which are targeted to "retina" high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/) and currently implemented by the [Bourbon](http://bourbon.io/docs/#hidpi-media-query) framework.
 
 An example using `retinaImage()`:
 
@@ -306,9 +306,9 @@ $logoWidth: 200px;
 Note:
 - The width argument passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not given.
 - This is typically what you want if the background image is to span the full width of the element, allowing the browser to determine the natural scaled height (matching the aspect ratio).
-- Providing a specific width I find is (usually) only needed for CSS spriting tasks.
+- Providing a specific width is (typically) only needed for CSS spriting tasks.
 
-Also included is a `retinaOnly()` mixin for adding any arbitrary CSS style rules:
+Also included is `retinaOnly()` for arbitrary CSS style rules:
 ```scss
 @import 'retina';
 
@@ -324,8 +324,8 @@ Also included is a `retinaOnly()` mixin for adding any arbitrary CSS style rules
 }
 ```
 
-### vendor.scss
-[vendor.scss](vendor.scss) holds mixins for several CSS properties that (still) require vendor prefixes:
+### [`vendor.scss`](vendor.scss)
+Mixins for several CSS properties that (still) require vendor prefixes:
 - `backface-visibility($value)`, providing `-webkit-` vendor prefix.
-- `linear-gradient($angle,$stops)`, providing `-webkit-` and `-o-` vendor prefixes with alternative (reversed) `$angle` syntax for `to top`, `to right`, etc.
+- `linear-gradient($angle,$stops)`, providing `-webkit-` vendor prefix with alternative (reversed) `$angle` syntax for `to top`, `to right`, etc.
 - `transform($value)`, providing `-webkit-` and `-ms-` (required with [IE9](http://caniuse.com/#feat=transforms2d)) prefixes for `transform()`.

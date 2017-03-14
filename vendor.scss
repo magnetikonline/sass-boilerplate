@@ -18,7 +18,6 @@ $vendorLinerGradientLegacyAngleList: (
 @mixin linear-gradient($angle,$stops...) {
 	@if (map-has-key($vendorLinerGradientLegacyAngleList,$angle)) {
 		$angleLegacy: map-get($vendorLinerGradientLegacyAngleList,$angle);
-		background: -o-linear-gradient($angleLegacy,$stops);
 		background: -webkit-linear-gradient($angleLegacy,$stops);
 		background: linear-gradient($angle,$stops);
 	} @else {
