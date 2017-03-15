@@ -1,0 +1,19 @@
+{
+	"name": "sassboilerplate",
+	"version": "0.1.0",
+	"description": "A collection of common use Sass stylesheets, mixins and functions.",
+	"keywords": [
+		"css",
+		"responsive",
+		"scss"
+	],
+	"author": {
+		"name": "Peter Mescalchin",
+		"url": "http://magnetikonline.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/magnetikonline/sassboilerplate.git"
+	},
+	"license": "MIT"
+}

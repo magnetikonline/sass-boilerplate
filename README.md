@@ -1,6 +1,8 @@
 # Sass boilerplate
 Building a collection of my common use Sass mixins, functions and snippets. All written with SCSS syntax.
 
+[![NPM](https://nodei.co/npm/sassboilerplate.png?downloads=true)](https://nodei.co/npm/sassboilerplate/)
+
 - [Revision history](#revision-history)
 - [Library](#library)
 	- [resetbase.scss](#resetbasescss)
@@ -12,6 +14,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 	- [vendor.scss](#vendorscss)
 
 ## Revision history
+- `2017-03-15` Published initial [npm package](https://www.npmjs.com/package/sassboilerplate).
 - `2015-03-24` Major rewrite supporting [Sass 3.4.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#340_18_august_2014) and above only, along with dropping of IE8 support and various implementation changes.
 - `2014-10-02` Final release for [Sass 3.2.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#320_10_august_2012). Future revisions make strong use of features such as [Sass maps](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#sassscript_maps) and the [`@error`](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7) directive. Release has been tagged as [final3.2](https://github.com/magnetikonline/sassboilerplate/tree/final3.2) if anyone is after it.
 - `2013-03-31` Initial release.
