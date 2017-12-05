@@ -33,7 +33,6 @@ Provides the following:
 - Removal of the tap highlight color from Webkit based browsers on touch enabled devices, proves to be rather annoying at times (applies to iOS/Mobile Safari in particular).
 
 Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden via Sass variables:
-
 ```scss
 $resetBase_baseBackground: #000;
 $resetBase_baseColor: #fff;
@@ -43,7 +42,6 @@ $resetBase_baseFontFamily: Arial,'Helvetica Neue',Helvetica,sans-serif;
 ```
 
 ...which would generate:
-
 ```css
 body,button,input,select,td,textarea,th {
 	color: #fff;
@@ -58,7 +56,6 @@ body {
 ```
 
 The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` definitions are implemented as [Sass placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders) and used with the `@extend` directive, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
-
 ```scss
 .myclasswithclearfix {
 	@extend %clearFix;
@@ -78,13 +75,12 @@ The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighli
 ### [`animationtransition.scss`](animationtransition.scss)
 Mixins for CSS3 `animation`, `@keyframes` and `transition` defintions.
 
-Includes `-webkit-` vendor prefix (Firefox went prefix free since [version 16](http://caniuse.com/css-animation)).
+Includes `-webkit-` vendor prefix (Firefox went prefix free since [version 16](https://caniuse.com/#feat=css-animation)).
 
 ### [`collection.scss`](collection.scss)
 A series of `@function`s for fetching what I consider *collection* values, defined within Sass map data types.
 
 Currently for colors, font sizes, spacing (margin/padding/etc.) and z-indexes:
-
 ```scss
 @import 'collection';
 
@@ -131,7 +127,6 @@ $zIndexMap: (
 ```
 
 ...generating:
-
 ```css
 .firstclass {
 	color: #1d90e0;
@@ -166,14 +161,12 @@ Cross browser compatible `@font-face` embedding of webfont files:
 - `woff` (Standards)
 
 The `fontFace()` function accepts optional `font-style` and `font-weight` arguments - both which default to `normal`:
-
 ```scss
 @import 'fontface';
 @include fontFace('MyFont','font/myfont');
 ```
 
 ...generating:
-
 ```css
 @font-face {
 	font-family: "MyFont";
@@ -191,7 +184,6 @@ The `fontFace()` function accepts optional `font-style` and `font-weight` argume
 Media query mixins to assist with responsive width page layouts.
 
 Breakpoints are defined in a `$respondWidthMap` map variable. As an example, how I typically implement using common device breakpoints:
-
 ```scss
 @import 'respondwidth';
 
@@ -229,7 +221,6 @@ $respondWidthMap: (
 ```
 
 ...generating:
-
 ```css
 .pageframe {
 	margin: 0 auto;
@@ -267,10 +258,11 @@ Note:
 - Function `respondWidthGet($key[,$shift])` returns the defined width for a given `$key`, useful for dependent calculations. An optional `$shift` integer parameter allows for increment/decrement to map value.
 
 ### [`retina.scss`](retina.scss)
-Allows for creation of styles (typically images) which are targeted to "retina" high pixel density displays. Using the `@media` query created by [Thomas Fuchs](https://gist.github.com/madrobby/4161897/) and currently implemented by the [Bourbon](http://bourbon.io/docs/#hidpi-media-query) framework.
+Allows for creation of styles (typically images) which are targeted to "retina" high pixel density displays.
+
+Implemented `@media` query credit to [Marc Edwards](https://gist.github.com/marcedwards/3446599).
 
 An example using `retinaImage()`:
-
 ```scss
 @import 'retina';
 $logoWidth: 200px;
@@ -285,7 +277,6 @@ $logoWidth: 200px;
 ```
 
 ...generating:
-
 ```css
 .companylogo {
 	background: url(companylogo.png) no-repeat 0 0;
@@ -307,11 +298,11 @@ $logoWidth: 200px;
 ```
 
 Note:
-- The width argument passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not given.
-- This is typically what you want if the background image is to span the full width of the element, allowing the browser to determine the natural scaled height (matching the aspect ratio).
+- The width argument passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not defined.
+- A `100%` width is _usually_ suitable if the image is to span the full background width of the element, allowing the browser to determine a scaled height keeping the aspect ratio.
 - Providing a specific width is (typically) only needed for CSS spriting tasks.
 
-Also included is `retinaOnly()` for arbitrary CSS style rules:
+Also included is `retinaOnly()` for arbitrary CSS style blocks:
 ```scss
 @import 'retina';
 
@@ -321,7 +312,7 @@ Also included is `retinaOnly()` for arbitrary CSS style rules:
 	width: 100px;
 
 	@include retinaOnly() {
-		// reward for retina display is a red border
+		// reward for retina is a red border
 		border: 1px solid #f00;
 	}
 }
@@ -331,4 +322,4 @@ Also included is `retinaOnly()` for arbitrary CSS style rules:
 Mixins for several CSS properties that (still) require vendor prefixes:
 - `backface-visibility($value)`, providing `-webkit-` vendor prefix.
 - `linear-gradient($angle,$stops)`, providing `-webkit-` vendor prefix with alternative (reversed) `$angle` syntax for `to top`, `to right`, etc.
-- `transform($value)`, providing `-webkit-` and `-ms-` (required with [IE9](http://caniuse.com/#feat=transforms2d)) prefixes for `transform()`.
+- `transform($value)`, providing `-webkit-` and `-ms-` (required with [IE9](https://caniuse.com/#feat=transforms2d)) prefixes for `transform()`.
