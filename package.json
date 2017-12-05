@@ -1,6 +1,6 @@
 {
 	"name": "sassboilerplate",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "A collection of common use Sass stylesheets, mixins and functions.",
 	"keywords": [
 		"css",

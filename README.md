@@ -14,6 +14,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 	- [vendor.scss](#vendorscss)
 
 ## Revision history
+- `2017-12-05` Update to Retina media query evaluation.
 - `2017-03-15` Published initial [npm package](https://www.npmjs.com/package/sassboilerplate).
 - `2015-03-24` Major rewrite supporting [Sass 3.4.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#340_18_august_2014) and above only, along with dropping of IE8 support and various implementation changes.
 - `2014-10-02` Final release for [Sass 3.2.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#320_10_august_2012). Future revisions make strong use of features such as [Sass maps](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#sassscript_maps) and the [`@error`](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7) directive. Release has been tagged as [final3.2](https://github.com/magnetikonline/sassboilerplate/tree/final3.2) if anyone is after it.
@@ -284,12 +285,9 @@ $logoWidth: 200px;
 	width: 200px;
 }
 
-@media (min--moz-device-pixel-ratio: 1.5),
-	(-o-min-device-pixel-ratio: 3 / 2),
-	(-webkit-min-device-pixel-ratio: 1.5),
-	(min-device-pixel-ratio: 1.5),
-	(min-resolution: 144dpi),
-	(min-resolution: 1.5dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+	only screen and (-o-min-device-pixel-ratio: 13/10),
+	only screen and (min-resolution: 120dpi) {
 	.companylogo {
 		background-image: url(companylogo2x.png);
 		background-size: 200px;
