@@ -16,7 +16,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 ## Revision history
 - `2017-12-05` Update to Retina media query evaluation.
 - `2017-03-15` Published initial [npm package](https://www.npmjs.com/package/sassboilerplate).
-- `2015-03-24` Major rewrite supporting [Sass 3.4.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#340_18_august_2014) and above only, along with dropping of IE8 support and various implementation changes.
+- `2015-03-24` Major rewrite supporting [Sass 3.4.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#3_4_0__18_August_2014_) and above only, along with dropping of IE8 support and various implementation changes.
 - `2014-10-02` Final release for [Sass 3.2.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#320_10_august_2012). Future revisions make strong use of features such as [Sass maps](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#sassscript_maps) and the [`@error`](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7) directive. Release has been tagged as [final3.2](https://github.com/magnetikonline/sassboilerplate/tree/final3.2) if anyone is after it.
 - `2013-03-31` Initial release.
 
@@ -149,9 +149,9 @@ $zIndexMap: (
 ```
 
 Note:
-- Omitting map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each Sass map (the default value).
-- Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value. Defaults to 1 (returning source spacing map value).
-- Function `zIndex($key[,$shift])` optional `$shift` integer parameter allows increment/decrement to given `z-index` map value. Defaults to 0 (zero).
+- Omitting map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each Sass map.
+- Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value.
+- Function `zIndex($key[,$shift])` optional `$shift` integer parameter allows increment/decrement to returned `z-index` map value.
 - Invalid map keys given to any function will throw a fatal [Sass error](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7).
 
 ### [`fontface.scss`](fontface.scss)
@@ -296,7 +296,7 @@ $logoWidth: 200px;
 ```
 
 Note:
-- The width argument passed to `retinaImage()` is optional, will default to 100% (`background-size: 100%`) if not defined.
+- Width argument passed to `retinaImage()` is optional, defaulting to 100% (`background-size: 100%`) if not defined.
 - A `100%` width is _usually_ suitable if the image is to span the full background width of the element, allowing the browser to determine a scaled height keeping the aspect ratio.
 - Providing a specific width is (typically) only needed for CSS spriting tasks.
 
