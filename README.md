@@ -161,6 +161,8 @@ Cross browser compatible `@font-face` embedding of webfont files:
 - `ttf` (Safari, Android, iOS) and;
 - `woff` (Standards)
 
+Implemented `@font-face` definition credit to [Chris Coyier](https://css-tricks.com/snippets/css/using-font-face/).
+
 The `fontFace()` function accepts optional `font-style` and `font-weight` arguments - both which default to `normal`:
 ```scss
 @import 'fontface';
