@@ -1,4 +1,5 @@
 # Sass boilerplate
+
 Building a collection of my common use Sass mixins, functions and snippets. All written with SCSS syntax.
 
 [![NPM](https://nodei.co/npm/sassboilerplate.png?downloads=true)](https://nodei.co/npm/sassboilerplate/)
@@ -14,7 +15,9 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 	- [vendor.scss](#vendorscss)
 
 ## Revision history
-- `2017-12-05` Update to Retina media query evaluation.
+
+- `2021-05-18` Another update to Retina media query evaluation [method](https://css-tricks.com/snippets/css/retina-display-media-query/).
+- `2017-12-05` Update to Retina media query evaluation [method](https://gist.github.com/marcedwards/3446599).
 - `2017-03-15` Published initial [npm package](https://www.npmjs.com/package/sassboilerplate).
 - `2015-03-24` Major rewrite supporting [Sass 3.4.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#3_4_0__18_August_2014_) and above only, along with dropping of IE8 support and various implementation changes.
 - `2014-10-02` Final release for [Sass 3.2.0](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#320_10_august_2012). Future revisions make strong use of features such as [Sass maps](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html#sassscript_maps) and the [`@error`](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7) directive. Release has been tagged as [final3.2](https://github.com/magnetikonline/sassboilerplate/tree/final3.2) if anyone is after it.
@@ -23,6 +26,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 ## Library
 
 ### [`resetbase.scss`](resetbase.scss)
+
 Provides the following:
 - `box-sizing: border-box` applied to all elements.
 - CSS "reset" to base page elements.
@@ -34,6 +38,7 @@ Provides the following:
 - Removal of the tap highlight color from Webkit based browsers on touch enabled devices, proves to be rather annoying at times (applies to iOS/Mobile Safari in particular).
 
 Designed for use with all modern browsers and IE8+. The default `background`, `color` and `font-family` can be overridden via Sass variables:
+
 ```scss
 $resetBase_baseBackground: #000;
 $resetBase_baseColor: #fff;
@@ -43,6 +48,7 @@ $resetBase_baseFontFamily: Arial,'Helvetica Neue',Helvetica,sans-serif;
 ```
 
 ...which would generate:
+
 ```css
 body,button,input,select,td,textarea,th {
 	color: #fff;
@@ -57,6 +63,7 @@ body {
 ```
 
 The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighlightRemove` definitions are implemented as [Sass placeholders](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders) and used with the `@extend` directive, rather than littering HTML markup with things like `class="clearfix"` / `class="hide"`:
+
 ```scss
 .myclasswithclearfix {
 	@extend %clearFix;
@@ -74,14 +81,17 @@ The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighli
 ```
 
 ### [`animationtransition.scss`](animationtransition.scss)
+
 Mixins for CSS3 `animation`, `@keyframes` and `transition` defintions.
 
 Includes `-webkit-` vendor prefix (Firefox went prefix free since [version 16](https://caniuse.com/#feat=css-animation)).
 
 ### [`collection.scss`](collection.scss)
+
 A series of `@function`s for fetching what I consider *collection* values, defined within Sass map data types.
 
 Currently for colors, font sizes, spacing (margin/padding/etc.) and z-indexes:
+
 ```scss
 @import 'collection';
 
@@ -107,7 +117,6 @@ $zIndexMap: (
 	ceiling: 1000
 );
 
-
 .firstclass {
 	color: color(blue);
 	font-size: fontSize();
@@ -128,6 +137,7 @@ $zIndexMap: (
 ```
 
 ...generating:
+
 ```css
 .firstclass {
 	color: #1d90e0;
@@ -149,13 +159,16 @@ $zIndexMap: (
 ```
 
 Note:
+
 - Omitting map key argument from `fontSize()`, `sp()` and `zIndex()` will return the **first** value in each Sass map.
 - Function `sp($key[,$multiplier])` optional `$multiplier` float parameter allows for adjustment of the requested spacing map value.
 - Function `zIndex($key[,$shift])` optional `$shift` integer parameter allows increment/decrement to returned `z-index` map value.
 - Invalid map keys given to any function will throw a fatal [Sass error](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_7).
 
 ### [`fontface.scss`](fontface.scss)
+
 Cross browser compatible `@font-face` embedding of webfont files:
+
 - `eot` (Internet Explorer)
 - `svg` (iOS legacy)
 - `ttf` (Safari, Android, iOS) and;
@@ -164,12 +177,14 @@ Cross browser compatible `@font-face` embedding of webfont files:
 Implemented `@font-face` definition credit to [Chris Coyier](https://css-tricks.com/snippets/css/using-font-face/).
 
 The `fontFace()` function accepts optional `font-style` and `font-weight` arguments - both which default to `normal`:
+
 ```scss
 @import 'fontface';
 @include fontFace('MyFont','font/myfont');
 ```
 
 ...generating:
+
 ```css
 @font-face {
 	font-family: "MyFont";
@@ -187,6 +202,7 @@ The `fontFace()` function accepts optional `font-style` and `font-weight` argume
 Media query mixins to assist with responsive width page layouts.
 
 Breakpoints are defined in a `$respondWidthMap` map variable. As an example, how I typically implement using common device breakpoints:
+
 ```scss
 @import 'respondwidth';
 
@@ -224,6 +240,7 @@ $respondWidthMap: (
 ```
 
 ...generating:
+
 ```css
 .pageframe {
 	margin: 0 auto;
@@ -256,16 +273,19 @@ $respondWidthMap: (
 ```
 
 Note:
+
 - The generated `@media` query `min-width` is deliberately returned 1px *greater* than the `$respondWidthMap` map value defined to provide isolation between each breakpoint range.
 - Invalid breakpoint map keys given to any of these functions; or a `from` breakpoint greater than `upTo` given to `respondWidthFromUpTo()` will throw a fatal Sass error.
 - Function `respondWidthGet($key[,$shift])` returns the defined width for a given `$key`, useful for dependent calculations. An optional `$shift` integer parameter allows for increment/decrement to map value.
 
 ### [`retina.scss`](retina.scss)
+
 Allows for creation of styles (typically images) which are targeted to "retina" high pixel density displays.
 
-Implemented `@media` query credit to [Marc Edwards](https://gist.github.com/marcedwards/3446599).
+Implemented `@media` query credit to [Chris Coyier](https://css-tricks.com/snippets/css/retina-display-media-query/).
 
 An example using `retinaImage()`:
+
 ```scss
 @import 'retina';
 $logoWidth: 200px;
@@ -280,6 +300,7 @@ $logoWidth: 200px;
 ```
 
 ...generating:
+
 ```css
 .companylogo {
 	background: url(companylogo.png) no-repeat 0 0;
@@ -298,11 +319,13 @@ $logoWidth: 200px;
 ```
 
 Note:
+
 - Width argument passed to `retinaImage()` is optional, defaulting to 100% (`background-size: 100%`) if not defined.
 - A `100%` width is _usually_ suitable if the image is to span the full background width of the element, allowing the browser to determine a scaled height keeping the aspect ratio.
 - Providing a specific width is (typically) only needed for CSS spriting tasks.
 
 Also included is `retinaOnly()` for arbitrary CSS style blocks:
+
 ```scss
 @import 'retina';
 
@@ -319,7 +342,9 @@ Also included is `retinaOnly()` for arbitrary CSS style blocks:
 ```
 
 ### [`vendor.scss`](vendor.scss)
+
 Mixins for several CSS properties that (still) require vendor prefixes:
+
 - `backface-visibility($value)`, providing `-webkit-` vendor prefix.
 - `linear-gradient($angle,$stops)`, providing `-webkit-` vendor prefix with alternative (reversed) `$angle` syntax for `to top`, `to right`, etc.
 - `transform($value)`, providing `-webkit-` and `-ms-` (required with [IE9](https://caniuse.com/#feat=transforms2d)) prefixes for `transform()`.
