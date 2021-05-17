@@ -1,5 +1,4 @@
 @function color($key) {
-
 	@if (map-has-key($colorMap,$key)) {
 		@return map-get($colorMap,$key);
 	}
@@ -8,7 +7,6 @@
 }
 
 @function fontSize($key: null) {
-
 	@if ($key == null) {
 		// default to first map key
 		$key: nth(map-keys($fontSizeMap),1);
@@ -22,7 +20,6 @@
 }
 
 @function sp($key: null,$multiplier: 1) {
-
 	@if ($key == null) {
 		// default to first map key
 		$key: nth(map-keys($spacingMap),1);
@@ -36,7 +33,6 @@
 }
 
 @function zIndex($key: null,$shift: 0) {
-
 	@if ($key == null) {
 		// default to first map key
 		$key: nth(map-keys($zIndexMap),1);

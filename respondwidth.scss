@@ -42,7 +42,6 @@
 }
 
 @function respondWidthGet($key,$shift: 0) {
-
 	@if (map-has-key($respondWidthMap,$key)) {
 		@return (map-get($respondWidthMap,$key) + $shift);
 	}
