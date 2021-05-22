@@ -7,10 +7,7 @@
 		"responsive",
 		"scss"
 	],
-	"author": {
-		"name": "Peter Mescalchin",
-		"url": "http://magnetikonline.com"
-	},
+	"author": "Peter Mescalchin (http://magnetikonline.com)",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/magnetikonline/sass-boilerplate.git"
