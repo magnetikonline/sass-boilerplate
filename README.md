@@ -28,6 +28,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 ### [`resetbase.scss`](resetbase.scss)
 
 Provides the following:
+
 - `box-sizing: border-box` applied to all elements.
 - CSS "reset" to base page elements.
 - `font-size` reset so `1em = 10px`.
