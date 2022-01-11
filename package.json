@@ -7,10 +7,10 @@
 		"responsive",
 		"scss"
 	],
+	"license": "MIT",
 	"author": "Peter Mescalchin (http://magnetikonline.com)",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/magnetikonline/sass-boilerplate.git"
-	},
-	"license": "MIT"
+	}
 }
