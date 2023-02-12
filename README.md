@@ -2,8 +2,6 @@
 
 Building a collection of my common use Sass mixins, functions and snippets. All written with SCSS syntax.
 
-[![NPM](https://nodei.co/npm/sassboilerplate.png?downloads=true)](https://nodei.co/npm/sassboilerplate/)
-
 - [Revision history](#revision-history)
 - [Library](#library)
 	- [resetbase.scss](#resetbasescss)
