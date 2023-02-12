@@ -50,14 +50,14 @@ $resetBase_baseFontFamily: Arial,'Helvetica Neue',Helvetica,sans-serif;
 
 ```css
 body,button,input,select,td,textarea,th {
-	color: #fff;
-	font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
+  color: #fff;
+  font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
 }
 
 body {
-	background: #000;
-	font-size: 62.5%;
-	line-height: 1;
+  background: #000;
+  font-size: 62.5%;
+  line-height: 1;
 }
 ```
 
@@ -65,17 +65,17 @@ The `clearFix`, `hide`, `textOverflowEllipsis`, `responsiveImage` and `tapHighli
 
 ```scss
 .myclasswithclearfix {
-	@extend %clearFix;
-	border: 1px solid #000;
-	color: #f00;
+  @extend %clearFix;
+  border: 1px solid #000;
+  color: #f00;
 }
 
 .mybutton {
-	@extend %tapHighlightRemove;
-	color: #f00;
-	display: inline-block;
-	font-weight: bold;
-	height: 20px;
+  @extend %tapHighlightRemove;
+  color: #f00;
+  display: inline-block;
+  font-weight: bold;
+  height: 20px;
 }
 ```
 
@@ -95,43 +95,43 @@ Currently for colors, font sizes, spacing (margin/padding/etc.) and z-indexes:
 @import 'collection';
 
 $colorMap: (
-	blue: #1d90e0,
-	grey: #898b8d,
-	orange: #da4300
+  blue: #1d90e0,
+  grey: #898b8d,
+  orange: #da4300
 );
 
 $fontSizeMap: (
-	base: 1.2em,
-	title: 1.3em
+  base: 1.2em,
+  title: 1.3em
 );
 
 $spacingMap: (
-	base: 20px,
-	double: 40px
+  base: 20px,
+  double: 40px
 );
 
 $zIndexMap: (
-	base: 1,
-	modal: 200,
-	ceiling: 1000
+  base: 1,
+  modal: 200,
+  ceiling: 1000
 );
 
 .firstclass {
-	color: color(blue);
-	font-size: fontSize();
-	margin-left: sp();
-	z-index: zIndex(ceiling);
+  color: color(blue);
+  font-size: fontSize();
+  margin-left: sp();
+  z-index: zIndex(ceiling);
 }
 
 .secondclass {
-	color: color(orange);
-	font-size: fontSize(title);
-	margin-left: sp(double);
-	z-index: zIndex();
+  color: color(orange);
+  font-size: fontSize(title);
+  margin-left: sp(double);
+  z-index: zIndex();
 }
 
 .zindexadjust {
-	z-index: zIndex(modal,-5);
+  z-index: zIndex(modal,-5);
 }
 ```
 
@@ -139,21 +139,21 @@ $zIndexMap: (
 
 ```css
 .firstclass {
-	color: #1d90e0;
-	font-size: 1.2em;
-	margin-left: 20px;
-	z-index: 1000;
+  color: #1d90e0;
+  font-size: 1.2em;
+  margin-left: 20px;
+  z-index: 1000;
 }
 
 .secondclass {
-	color: #da4300;
-	font-size: 1.3em;
-	margin-left: 40px;
-	z-index: 1;
+  color: #da4300;
+  font-size: 1.3em;
+  margin-left: 40px;
+  z-index: 1;
 }
 
 .zindexadjust {
-	z-index: 195;
+  z-index: 195;
 }
 ```
 
@@ -186,14 +186,14 @@ The `fontFace()` function accepts optional `font-style` and `font-weight` argume
 
 ```css
 @font-face {
-	font-family: "MyFont";
-	src: url("font/myfont.eot");
-	src: url("font/myfont.eot?#iefix") format("embedded-opentype"),
-		url("font/myfont.woff") format("woff"),
-		url("font/myfont.ttf") format("truetype"),
-		url("font/myfont.svg#MyFont") format("svg");
-	font-style: normal;
-	font-weight: normal;
+  font-family: "MyFont";
+  src: url("font/myfont.eot");
+  src: url("font/myfont.eot?#iefix") format("embedded-opentype"),
+    url("font/myfont.woff") format("woff"),
+    url("font/myfont.ttf") format("truetype"),
+    url("font/myfont.svg#MyFont") format("svg");
+  font-style: normal;
+  font-weight: normal;
 }
 ```
 
@@ -209,32 +209,32 @@ Breakpoints are defined in a `$respondWidthMap` map variable. As an example, how
 // 997px - Infin (960px suggested frame/row width)
 // 769px - 996px (732px suggested frame/row width)
 // 481px - 768px (444px suggested frame/row width)
-// 0px	 - 480px (300px suggested frame/row width)
+// 0px   - 480px (300px suggested frame/row width)
 $respondWidthMap: (
-	centi: 996px,
-	micro: 768px,
-	nano: 480px
+  centi: 996px,
+  micro: 768px,
+  nano: 480px
 );
 
 .pageframe {
-	margin: 0 auto;
-	width: respondWidthGet(centi,-36px);
+  margin: 0 auto;
+  width: respondWidthGet(centi,-36px);
 
-	@include respondWidthFrom(centi) {
-		padding: 0 50px;
-	}
+  @include respondWidthFrom(centi) {
+    padding: 0 50px;
+  }
 
-	@include respondWidthFromUpTo(micro,centi) {
-		width: respondWidthGet(micro,-36px);
-	}
+  @include respondWidthFromUpTo(micro,centi) {
+    width: respondWidthGet(micro,-36px);
+  }
 
-	@include respondWidthFromUpTo(nano,micro) {
-		width: respondWidthGet(nano,-36px);
-	}
+  @include respondWidthFromUpTo(nano,micro) {
+    width: respondWidthGet(nano,-36px);
+  }
 
-	@include respondWidthUpTo(nano) {
-		width: 300px;
-	}
+  @include respondWidthUpTo(nano) {
+    width: 300px;
+  }
 }
 ```
 
@@ -242,32 +242,32 @@ $respondWidthMap: (
 
 ```css
 .pageframe {
-	margin: 0 auto;
-	width: 960px;
+  margin: 0 auto;
+  width: 960px;
 }
 
 @media screen and (min-width: 997px) {
-	.pageframe {
-		padding: 0 50px;
-	}
+  .pageframe {
+    padding: 0 50px;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 996px) {
-	.pageframe {
-		width: 732px;
-	}
+  .pageframe {
+    width: 732px;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
-	.pageframe {
-		width: 444px;
-	}
+  .pageframe {
+    width: 444px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-	.pageframe {
-		width: 300px;
-	}
+  .pageframe {
+    width: 300px;
+  }
 }
 ```
 
@@ -290,11 +290,11 @@ An example using `retinaImage()`:
 $logoWidth: 200px;
 
 .companylogo {
-	background: url(companylogo.png) no-repeat 0 0;
-	height: 200px;
-	width: $logoWidth;
+  background: url(companylogo.png) no-repeat 0 0;
+  height: 200px;
+  width: $logoWidth;
 
-	@include retinaImage('companylogo2x.png',$logoWidth);
+  @include retinaImage('companylogo2x.png',$logoWidth);
 }
 ```
 
@@ -302,18 +302,18 @@ $logoWidth: 200px;
 
 ```css
 .companylogo {
-	background: url(companylogo.png) no-repeat 0 0;
-	height: 200px;
-	width: 200px;
+  background: url(companylogo.png) no-repeat 0 0;
+  height: 200px;
+  width: 200px;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-	only screen and (-o-min-device-pixel-ratio: 13/10),
-	only screen and (min-resolution: 120dpi) {
-	.companylogo {
-		background-image: url(companylogo2x.png);
-		background-size: 200px;
-	}
+  only screen and (-o-min-device-pixel-ratio: 13/10),
+  only screen and (min-resolution: 120dpi) {
+  .companylogo {
+    background-image: url(companylogo2x.png);
+    background-size: 200px;
+  }
 }
 ```
 
@@ -329,14 +329,14 @@ Also included is `retinaOnly()` for arbitrary CSS style blocks:
 @import 'retina';
 
 .shinybutton {
-	font-weight: bold;
-	height: 200px;
-	width: 100px;
+  font-weight: bold;
+  height: 200px;
+  width: 100px;
 
-	@include retinaOnly() {
-		// reward for retina is a red border
-		border: 1px solid #f00;
-	}
+  @include retinaOnly() {
+    // reward for retina is a red border
+    border: 1px solid #f00;
+  }
 }
 ```
 
