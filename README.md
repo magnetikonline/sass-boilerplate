@@ -2,6 +2,7 @@
 
 Building a collection of my common use Sass mixins, functions and snippets. All written with SCSS syntax.
 
+- [Installation](#installation)
 - [Revision history](#revision-history)
 - [Library](#library)
 	- [resetbase.scss](#resetbasescss)
@@ -11,6 +12,12 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 	- [respondwidth.scss](#respondwidthscss)
 	- [retina.scss](#retinascss)
 	- [vendor.scss](#vendorscss)
+
+## Installation
+
+```sh
+$ npm install sassboilerplate
+```
 
 ## Revision history
 
