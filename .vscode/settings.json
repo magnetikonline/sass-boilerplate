@@ -1,0 +1,13 @@
+{
+	"scss.format.enable": true,
+	"scss.format.newlineBetweenRules": true,
+	"scss.format.newlineBetweenSelectors": true,
+	"scss.format.spaceAroundSelectorSeparator": true,
+	"[scss]": {
+		"editor.formatOnSave": true,
+	},
+
+	"files.exclude": {
+		"**/*.css": true
+	}
+}
