@@ -1,12 +1,16 @@
-@mixin retinaImage($src,$width: 100%) {
+@mixin retinaImage($src, $width: 100%) {
+
 	@media only screen and (-webkit-min-device-pixel-ratio: 2),
-		only screen and (min-resolution: 192dpi) {
-			background-image: url(#{$src});
-			background-size: $width;
-		}
+	only screen and (min-resolution: 192dpi) {
+		background-image: url(#{$src});
+		background-size: $width;
+	}
 }
 
 @mixin retinaOnly() {
+
 	@media only screen and (-webkit-min-device-pixel-ratio: 2),
-		only screen and (min-resolution: 192dpi) { @content; }
+	only screen and (min-resolution: 192dpi) {
+		@content;
+	}
 }

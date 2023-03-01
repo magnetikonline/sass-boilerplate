@@ -1,12 +1,12 @@
 $vendorLinerGradientLegacyAngleList: (
-	to bottom		: top,
-	to bottom left	: top right,
-	to bottom right	: top left,
-	to left			: right,
-	to right		: left,
-	to top			: bottom,
-	to top left		: bottom right,
-	to top right	: bottom left
+	to bottom: top,
+	to bottom left: top right,
+	to bottom right: top left,
+	to left: right,
+	to right: left,
+	to top: bottom,
+	to top left: bottom right,
+	to top right: bottom left
 );
 
 
@@ -15,12 +15,14 @@ $vendorLinerGradientLegacyAngleList: (
 	backface-visibility: $value;
 }
 
-@mixin linear-gradient($angle,$stops...) {
-	@if (map-has-key($vendorLinerGradientLegacyAngleList,$angle)) {
-		$angleLegacy: map-get($vendorLinerGradientLegacyAngleList,$angle);
-		background: -webkit-linear-gradient($angleLegacy,$stops);
-		background: linear-gradient($angle,$stops);
-	} @else {
+@mixin linear-gradient($angle, $stops...) {
+	@if (map-has-key($vendorLinerGradientLegacyAngleList, $angle)) {
+		$angleLegacy: map-get($vendorLinerGradientLegacyAngleList, $angle);
+		background: -webkit-linear-gradient($angleLegacy, $stops);
+		background: linear-gradient($angle, $stops);
+	}
+
+	@else {
 		@error 'Invalid $angle: #{$angle}';
 	}
 }

@@ -1,49 +1,63 @@
 @mixin respondWidth($query) {
-	@media screen and #{$query} { @content; }
+	@media screen and #{$query} {
+		@content;
+	}
 }
 
 @mixin respondWidthFrom($key) {
-	@if (map-has-key($respondWidthMap,$key)) {
-		@media screen and
-			(min-width: map-get($respondWidthMap,$key) + 1) { @content; }
-	} @else {
+	@if (map-has-key($respondWidthMap, $key)) {
+		@media screen and (min-width: map-get($respondWidthMap, $key) + 1) {
+			@content;
+		}
+	}
+
+	@else {
 		@error 'Invalid $respondWidthMap \'from\' key: #{$key}';
 	}
 }
 
 @mixin respondWidthUpTo($key) {
-	@if (map-has-key($respondWidthMap,$key)) {
-		@media screen and
-			(max-width: map-get($respondWidthMap,$key)) { @content; }
-	} @else {
+	@if (map-has-key($respondWidthMap, $key)) {
+		@media screen and (max-width: map-get($respondWidthMap, $key)) {
+			@content;
+		}
+	}
+
+	@else {
 		@error 'Invalid $respondWidthMap \'up to\' key: #{$key}';
 	}
 }
 
-@mixin respondWidthFromUpTo($keyFrom,$keyUpTo) {
-	@if (map-has-key($respondWidthMap,$keyFrom)) {
-		@if (map-has-key($respondWidthMap,$keyUpTo)) {
-			$widthFrom: map-get($respondWidthMap,$keyFrom);
-			$widthUpTo: map-get($respondWidthMap,$keyUpTo);
+@mixin respondWidthFromUpTo($keyFrom, $keyUpTo) {
+	@if (map-has-key($respondWidthMap, $keyFrom)) {
+		@if (map-has-key($respondWidthMap, $keyUpTo)) {
+			$widthFrom: map-get($respondWidthMap, $keyFrom);
+			$widthUpTo: map-get($respondWidthMap, $keyUpTo);
 
 			@if ($widthFrom < $widthUpTo) {
-				@media screen and
-					(min-width: $widthFrom + 1) and
-					(max-width: $widthUpTo) { @content; }
-			} @else {
+				@media screen and (min-width: $widthFrom + 1) and (max-width: $widthUpTo) {
+					@content;
+				}
+			}
+
+			@else {
 				@error '$respondWidthMap key \'from\' (#{$keyFrom}) must be lower than key \'up to\' (#{$keyUpTo})';
 			}
-		} @else {
+		}
+
+		@else {
 			@error 'Invalid $respondWidthMap \'up to\' key: #{$keyUpTo}';
 		}
-	} @else {
+	}
+
+	@else {
 		@error 'Invalid $respondWidthMap \'from\' key: #{$keyFrom}';
 	}
 }
 
-@function respondWidthGet($key,$shift: 0) {
-	@if (map-has-key($respondWidthMap,$key)) {
-		@return (map-get($respondWidthMap,$key) + $shift);
+@function respondWidthGet($key, $shift: 0) {
+	@if (map-has-key($respondWidthMap, $key)) {
+		@return (map-get($respondWidthMap, $key) + $shift);
 	}
 
 	@error 'Invalid $respondWidthMap key: #{$key}';

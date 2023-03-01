@@ -46,8 +46,13 @@
 
 // -- animation - keyframes --
 @mixin keyframes($name) {
-	@-webkit-keyframes #{$name} { @content; }
-	@keyframes #{$name} { @content; }
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
 }
 
 // -- transition --
