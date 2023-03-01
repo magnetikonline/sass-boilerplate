@@ -6,7 +6,7 @@
 
 @mixin respondWidthFrom($key) {
 	@if (map-has-key($respondWidthMap, $key)) {
-		@media screen and (min-width: map-get($respondWidthMap, $key) + 1) {
+		@media screen and (min-width: calc(map-get($respondWidthMap, $key) + 1)) {
 			@content;
 		}
 	}
@@ -35,7 +35,7 @@
 			$widthUpTo: map-get($respondWidthMap, $keyUpTo);
 
 			@if ($widthFrom < $widthUpTo) {
-				@media screen and (min-width: $widthFrom + 1) and (max-width: $widthUpTo) {
+				@media screen and (min-width: calc($widthFrom + 1)) and (max-width: $widthUpTo) {
 					@content;
 				}
 			}
