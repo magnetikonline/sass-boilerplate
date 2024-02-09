@@ -10,7 +10,6 @@
 		url('#{$src}.ttf') format('truetype'),
 		// legacy iOS
 		url('#{$src}.svg##{$family}') format('svg');
-
 		font-style: $style;
 		font-weight: $weight;
 	}

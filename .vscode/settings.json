@@ -2,6 +2,7 @@
 	"scss.format.enable": true,
 	"scss.format.newlineBetweenRules": true,
 	"scss.format.newlineBetweenSelectors": true,
+	"scss.format.preserveNewLines": false,
 	"scss.format.spaceAroundSelectorSeparator": true,
 	"[scss]": {
 		"editor.formatOnSave": true,

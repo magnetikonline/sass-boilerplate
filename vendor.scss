@@ -9,7 +9,6 @@ $vendorLinerGradientLegacyAngleList: (
 	to top right: bottom left
 );
 
-
 @mixin backface-visibility($value) {
 	-webkit-backface-visibility: $value;
 	backface-visibility: $value;
