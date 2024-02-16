@@ -6,7 +6,7 @@
 
 @mixin respondWidthFrom($key) {
 	@if (map-has-key($respondWidthMap, $key)) {
-		@media screen and (min-width: calc(map-get($respondWidthMap, $key) + 1)) {
+		@media screen and (min-width: calc(map-get($respondWidthMap, $key) + 1px)) {
 			@content;
 		}
 	}
@@ -35,7 +35,7 @@
 			$widthUpTo: map-get($respondWidthMap, $keyUpTo);
 
 			@if ($widthFrom < $widthUpTo) {
-				@media screen and (min-width: calc($widthFrom + 1)) and (max-width: $widthUpTo) {
+				@media screen and (min-width: calc($widthFrom + 1px)) and (max-width: $widthUpTo) {
 					@content;
 				}
 			}
@@ -55,9 +55,9 @@
 	}
 }
 
-@function respondWidthGet($key, $shift: 0) {
+@function respondWidthGet($key, $shift: 0px) {
 	@if (map-has-key($respondWidthMap, $key)) {
-		@return (map-get($respondWidthMap, $key) + $shift);
+		@return calc(map-get($respondWidthMap, $key) + $shift);
 	}
 
 	@error 'Invalid $respondWidthMap key: #{$key}';

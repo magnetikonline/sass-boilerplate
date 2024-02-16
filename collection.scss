@@ -26,20 +26,20 @@
 	}
 
 	@if (map-has-key($spacingMap, $key)) {
-		@return (map-get($spacingMap, $key) * $multiplier);
+		@return calc(map-get($spacingMap, $key) * $multiplier);
 	}
 
 	@error 'Invalid $spacingMap key: #{$key}';
 }
 
-@function zIndex($key: null, $shift: 0) {
+@function zIndex($key: null, $shift: 0px) {
 	@if ($key ==null) {
 		// default to first map key
 		$key: nth(map-keys($zIndexMap), 1);
 	}
 
 	@if (map-has-key($zIndexMap, $key)) {
-		@return (map-get($zIndexMap, $key) + $shift);
+		@return calc(map-get($zIndexMap, $key) + $shift);
 	}
 
 	@error 'Invalid $zIndexMap key: #{$key}';
