@@ -7,28 +7,7 @@ $resetBase_baseFontFamily: sans-serif !default;
 	box-sizing: border-box;
 }
 
-a,
-abbr,
-body,
-button,
-fieldset,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-iframe,
-img,
-label,
-legend,
-li,
-ol,
-p,
-td,
-th,
-ul {
+a, abbr, body, button, fieldset, form, h1, h2, h3, h4, h5, h6, iframe, img, label, legend, li, ol, p, td, th, ul {
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
@@ -40,26 +19,17 @@ ul {
 	vertical-align: baseline;
 }
 
-a,
-abbr {
+a, abbr {
 	font-weight: inherit;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
 	font-size: 100%;
 	margin: 0;
 }
 
 // -- base --
-body,
-button,
-input,
-select,
-td,
-textarea,
-th {
+body, button, input, select, td, textarea, th {
 	color: $resetBase_baseColor;
 	font-family: $resetBase_baseFontFamily;
 }
