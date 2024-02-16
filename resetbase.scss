@@ -44,9 +44,7 @@ body {
 %clearFix:before,
 %clearFix:after {
 	content: '\0020'; // space character
-	display: block;
-	height: 0;
-	overflow: hidden;
+	display: table;
 }
 
 %clearFix:after {
