@@ -11,6 +11,6 @@
 	"author": "Peter Mescalchin (http://magnetikonline.com)",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/magnetikonline/sass-boilerplate.git"
+		"url": "git+https://github.com/magnetikonline/sass-boilerplate.git"
 	}
 }
