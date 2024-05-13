@@ -3,7 +3,9 @@ $resetBase_baseColor: #000 !default;
 $resetBase_baseFontFamily: sans-serif !default;
 
 // -- reset --
-* {
+*,
+*:before,
+*:after {
 	box-sizing: border-box;
 }
 
@@ -19,12 +21,11 @@ a, abbr, body, button, fieldset, form, h1, h2, h3, h4, h5, h6, iframe, img, labe
 	vertical-align: baseline;
 }
 
-a, abbr {
-	font-weight: inherit;
+a, abbr, button, input, select, textarea {
+	font: inherit;
 }
 
 input, select, textarea {
-	font-size: 100%;
 	margin: 0;
 }
 

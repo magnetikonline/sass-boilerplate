@@ -12,6 +12,7 @@ Building a collection of my common use Sass mixins, functions and snippets. All 
 	- [respondwidth.scss](#respondwidthscss)
 	- [retina.scss](#retinascss)
 	- [vendor.scss](#vendorscss)
+- [Reference](#reference)
 
 ## Installation
 
@@ -354,3 +355,7 @@ Mixins for several CSS properties that (still) require vendor prefixes:
 - `backface-visibility($value)`, providing `-webkit-` vendor prefix.
 - `linear-gradient($angle,$stops)`, providing `-webkit-` vendor prefix with alternative (reversed) `$angle` syntax for `to top`, `to right`, etc.
 - `transform($value)`, providing `-webkit-` and `-ms-` (required with [IE9](https://caniuse.com/#feat=transforms2d)) prefixes for `transform()`.
+
+# Reference
+
+- https://piccalil.li/blog/a-more-modern-css-reset/
